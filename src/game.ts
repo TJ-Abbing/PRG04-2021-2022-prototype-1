@@ -1,3 +1,5 @@
+console.log(`Loaded game.ts`)
+
 // imports
 import * as PIXI from "pixi.js"
 import fishImage from "./images/fish.png"
@@ -17,14 +19,14 @@ export class Game { // puts entire game into game class
 
         this.loader = new PIXI.Loader()
         this.loader
-            .add("fishTexture", fishImage)
-            .add("backgroundTexture", bgImage)
+            .add("fishTexture", fishImage) // adds fish texture
+            .add("backgroundTexture", bgImage) // adds background texture
 
         this.loader.load(() => this.doneLoading())
     }
 
     doneLoading() {
-        console.log("all textures loaded!")
+        console.log(`Loaded all textures.`) 
 
         // background
         this.background = new PIXI.Sprite(this.loader.resources["backgroundTexture"].texture!)
@@ -44,7 +46,7 @@ export class Game { // puts entire game into game class
     update(delta : number) { // game loop
         this.fish.x -= 4 // determines movement speed and direction 
 
-        if (this.fish.x <= -100) {
+        if (this.fish.x <= -100) { // when fish moves passed the left side; moves to the right side
             this.fish.x = 900
         }
 
@@ -52,3 +54,4 @@ export class Game { // puts entire game into game class
 }
 
 new Game()
+console.log(`Finished game.ts`)
