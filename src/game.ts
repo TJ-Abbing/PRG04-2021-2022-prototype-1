@@ -41,7 +41,7 @@ export class Game { // puts entire game into game class
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
-    update(delta : number) {
+    update(delta : number) { // game loop
         this.fish.x -= 4 // determines movement speed and direction 
 
         if (this.fish.x <= -100) {
