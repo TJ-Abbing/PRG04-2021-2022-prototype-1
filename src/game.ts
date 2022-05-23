@@ -42,7 +42,7 @@ export class Game { // puts entire game into game class
     }
 
     update(delta : number) {
-        this.fish.x -= 1.5 // determines movement speed and direction 
+        this.fish.x -= 4 // determines movement speed and direction 
 
         if (this.fish.x <= -100) {
             this.fish.x = 900
