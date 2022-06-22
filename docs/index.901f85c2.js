@@ -524,6 +524,7 @@ var _fishPng = require("./images/fish.png");
 var _fishPngDefault = parcelHelpers.interopDefault(_fishPng);
 var _waterJpg = require("./images/water.jpg");
 var _waterJpgDefault = parcelHelpers.interopDefault(_waterJpg);
+console.log(`Loaded game.ts`);
 class Game {
     constructor(){
         this.pixi = new _pixiJs.Application({
@@ -532,12 +533,14 @@ class Game {
         });
         document.body.appendChild(this.pixi.view);
         this.loader = new _pixiJs.Loader();
-        this.loader.add("fishTexture", _fishPngDefault.default).add("backgroundTexture", _waterJpgDefault.default);
+        this.loader.add("fishTexture", _fishPngDefault.default) // adds fish texture
+        .add("backgroundTexture", _waterJpgDefault.default) // adds background texture
+        ;
         this.loader.load(()=>this.doneLoading()
         );
     }
     doneLoading() {
-        console.log("all textures loaded!");
+        console.log(`Loaded all textures.`);
         // background
         this.background = new _pixiJs.Sprite(this.loader.resources["backgroundTexture"].texture);
         this.pixi.stage.addChild(this.background);
@@ -558,6 +561,7 @@ class Game {
     }
 }
 new Game();
+console.log(`Finished game.ts`);
 
 },{"pixi.js":"dsYej","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./images/fish.png":"3tLwD","./images/water.jpg":"jj9Eg"}],"dsYej":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
